@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import pureRender from '../../common/immutable-pure-render-decorator'
 
+@pureRender
 export default class Lists extends Component {
   constructor (props) {
     super(props)

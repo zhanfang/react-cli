@@ -23,7 +23,21 @@ module.exports = {
         loaders: [ 'babel' ],
         exclude: /node_modules/,
         include: __dirname
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+          plugins: ['transform-decorators-legacy'],
+          presets: [
+            'es2015-loose',
+            'react'
+          ]
+        },
+        exclude: /node_modules/
       }
+
     ]
   }
 }
