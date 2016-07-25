@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import connect from '../connect/index'
+import Lists from '../components/List/Lists'
+import Lists2 from '../components/List/Lists2'
 
 class UserPage extends Component {
   constructor (props) {
@@ -11,10 +14,17 @@ class UserPage extends Component {
   }
 
   render () {
+    console.log('UserPage is render')
+    const {user, changeUsername} = this.props
     return (
-      <h1 onClick={this.handleClick}>123</h1>
+      <div>
+        <h1>{user.username}</h1>
+        <button onClick={changeUsername}>click me</button>
+        <Lists list={user.list}/>
+        <Lists2 list={user.list2}/>
+      </div>
     )
   }
 }
 
-export default UserPage
+export default connect(UserPage)
